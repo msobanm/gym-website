@@ -37,6 +37,7 @@ const NewArrivalSection: React.FC = () => {
               alt={product.name}
               className="w-full h-64 object-cover rounded-md"
             />
+            <p className="text-center mt-2">{product.name}</p>
           </div>
         ))}
       </Slider>
