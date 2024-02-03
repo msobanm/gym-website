@@ -1,11 +1,11 @@
 import React from "react"
-import { CiUser, CiShoppingCart } from "react-icons/ci"
 import { navList } from "./utils/navList"
+import { icons } from "./utils/icons"
 
 const Navbar: React.FC = () => {
   return (
     <nav className="bg-white p-4">
-      <div className="container mx-auto grid grid-cols-3 content-center">
+      <div className="container mx-auto grid grid-cols-3 items-center content-center">
         <ul className="flex gap-12">
           {navList.map((item) => (
             <li className="text-primary cursor-pointer" key={item.title}>
@@ -17,8 +17,14 @@ const Navbar: React.FC = () => {
           Your Logo
         </div>
         <div className="flex gap-10 justify-self-end">
-          <CiUser className="h-6 w-6 cursor-pointer" />
-          <CiShoppingCart className="h-6 w-6 cursor-pointer" />
+          {icons.map((icon, i) => (
+            <div
+              key={i}
+              className="hover:bg-gray-300 cursor-pointer p-2 rounded-full transition duration-200 ease-in-out"
+            >
+              <icon.icon className="h-6 w-6" />
+            </div>
+          ))}
         </div>
       </div>
     </nav>
