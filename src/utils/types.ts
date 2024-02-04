@@ -23,7 +23,7 @@ export type FormInputProps = {
   label: string
   name: string
   type: string
-  placeholder: string
+  placeholder?: string
   register: UseFormRegisterReturn
   message: string | undefined
 }
