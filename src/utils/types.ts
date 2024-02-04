@@ -15,3 +15,8 @@ export type ReviewCardProps = {
   content: string
   rating: number
 }
+
+export type ShopItemProps = {
+  path: string
+  index: number
+}
