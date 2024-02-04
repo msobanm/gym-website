@@ -7,6 +7,7 @@ export type ButtonProps = {
 export type CarouselItemProps = {
   name: string
   image: string
+  onClick: () => void
 }
 
 export type ReviewCardProps = {
