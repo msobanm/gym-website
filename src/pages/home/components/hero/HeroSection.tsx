@@ -1,7 +1,7 @@
 import React from "react"
 import Button from "../../../../components/Button"
 
-const HeroSection: React.FC = () => {
+const HeroSection = () => {
   return (
     <div className="bg-cover bg-center h-screen flex items-center text-white bg-[url('/img/background_.jpg')]">
       <div className="container mx-auto text-left">

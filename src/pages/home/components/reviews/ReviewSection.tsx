@@ -2,7 +2,7 @@ import React from "react"
 import { reviews } from "../../../../utils/data"
 import ReviewCard from "./ReviewCard"
 
-const ReviewSection: React.FC = () => {
+const ReviewSection = () => {
   return (
     <div className="container mx-auto my-8 p-10">
       <h2 className="text-4xl font-bold mb-6">Customer Reviews</h2>
