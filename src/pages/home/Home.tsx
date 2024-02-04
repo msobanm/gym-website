@@ -3,6 +3,7 @@ import Navbar from "../../components/navbar/Navbar"
 import Footer from "../../components/footer/Footer"
 import HeroSection from "./components/HeroSection"
 import NewArrivalSection from "./components/NewArrivalSection"
+import ShopSection from "./components/ShopSection"
 
 const Home: React.FC = () => {
   return (
@@ -10,6 +11,7 @@ const Home: React.FC = () => {
       <Navbar />
       <HeroSection />
       <NewArrivalSection />
+      <ShopSection />
       <Footer />
     </div>
   )
