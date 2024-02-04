@@ -4,6 +4,7 @@ import Footer from "../../components/footer/Footer"
 import HeroSection from "./components/HeroSection"
 import NewArrivalSection from "./components/NewArrivalSection"
 import ShopSection from "./components/ShopSection"
+import ReviewSection from "./components/ReviewSection"
 
 const Home: React.FC = () => {
   return (
@@ -12,6 +13,7 @@ const Home: React.FC = () => {
       <HeroSection />
       <NewArrivalSection />
       <ShopSection />
+      <ReviewSection />
       <Footer />
     </div>
   )
