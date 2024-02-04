@@ -3,7 +3,7 @@ import FollowSection from "./components/FollowSection"
 import EmailSection from "./components/EmailSection"
 import LegalSection from "./components/LegalSection"
 
-const Footer: React.FC = () => {
+const Footer = () => {
   return (
     <footer className="bg-primary text-white p-12 min-h-[25em] flex flex-col">
       <div className="flex flex-1 py-10 justify-between flex-wrap gap-10">

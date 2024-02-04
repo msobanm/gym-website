@@ -1,7 +1,7 @@
 import React from "react"
 import { icons } from "../utils/icons"
 
-const FollowSection: React.FC = () => {
+const FollowSection = () => {
   return (
     <div className="flex flex-col gap-5">
       <h1>Follow Us</h1>

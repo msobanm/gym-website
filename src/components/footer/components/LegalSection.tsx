@@ -1,7 +1,7 @@
 import React from "react"
 import { legal } from "../utils/legal"
 
-const LegalSection: React.FC = () => {
+const LegalSection = () => {
   return (
     <div className="flex justify-around flex-wrap gap-5 p-3 border-t">
       <p className="text-sm">
