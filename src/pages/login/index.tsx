@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
 import FormInput from "../../components/form/FormInput"
 import AuthForm from "../../components/form/AuthForm"
+import { inputs } from "./utils/inputs"
 
 const LoginFormSchema = z.object({
   email: z.string().email({ message: "Invalid email format" }).min(1),
@@ -27,22 +28,17 @@ const Login = () => {
 
   return (
     <AuthForm title="Login" onSubmit={handleSubmit(onSubmit)}>
-      <FormInput
-        label="Email"
-        name="email"
-        type="email"
-        placeholder="Enter your email"
-        register={{ ...register("email") }}
-        message={errors?.email?.message}
-      />
-      <FormInput
-        label="Password"
-        name="password"
-        type="password"
-        placeholder="Enter your password"
-        register={{ ...register("password") }}
-        message={errors?.password?.message}
-      />
+      {inputs.map((item) => (
+        <FormInput
+          key={item.name}
+          label={item.label}
+          name={item.name}
+          type={item.type}
+          placeholder={item.placeholder}
+          register={register(item?.name)}
+          message={errors?.[item.name]?.message}
+        />
+      ))}
     </AuthForm>
   )
 }
