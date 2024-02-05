@@ -19,6 +19,11 @@ export type CarouselItemProps = {
   onClick: () => void
 }
 
+export type CategoryColProps = {
+  selectedCategory: string
+  setSelectedCategory: React.Dispatch<React.SetStateAction<string>>
+}
+
 export type FormInputProps = {
   label: string
   name: string
@@ -26,6 +31,29 @@ export type FormInputProps = {
   placeholder?: string
   register: UseFormRegisterReturn
   message: string | undefined
+}
+
+// export type Product = {
+//   id: number
+//   title: string
+//   price: number
+//   description: string
+//   category: string
+//   image: string
+//   rating: {
+//     rate: number
+//     count: number
+//   }
+// }
+
+export type ProductItemProps = {
+  title: string
+  price: number
+  image: string
+}
+
+export type ProductListProps = {
+  category: string
 }
 
 export type ReviewCardProps = {
