@@ -1,9 +1,8 @@
 import React from "react"
 import { ProductListProps } from "../../../utils/types"
-import { products } from "../../../utils/data"
 import ProductListItem from "./ProductListItem"
 
-const ProductList = ({ category }: ProductListProps) => {
+const ProductList = ({ category, products }: ProductListProps) => {
   const filteredProducts =
     category === "All"
       ? products

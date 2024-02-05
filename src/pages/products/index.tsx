@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import ProductList from "./components/ProductList"
 import CategoryCol from "./components/CategoryCol"
 import Breadcrumbs from "../../components/Breadcrumbs"
+import { products } from "../../utils/data"
 
 const Products = () => {
   const [selectedCategory, setSelectedCategory] = useState("All")
@@ -20,7 +21,7 @@ const Products = () => {
               ? "All Products"
               : `Products in ${selectedCategory}`}
           </h2>
-          <ProductList category={selectedCategory} />
+          <ProductList category={selectedCategory} products={products} />
         </div>
       </div>
     </>

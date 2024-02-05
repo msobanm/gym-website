@@ -39,6 +39,19 @@ export type FormInputProps = {
   message: string | undefined
 }
 
+export type Product = {
+  id: number
+  title: string
+  image: string
+  description: string
+  price: number
+  category: string
+  rating: {
+    rate: number
+    count: number
+  }
+}
+
 export type ProductItemProps = {
   title: string
   image: string
@@ -63,6 +76,7 @@ export type ProductListItemProps = {
 
 export type ProductListProps = {
   category: string
+  products: Product[]
 }
 
 export type ReviewCardProps = {
