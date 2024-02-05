@@ -24,6 +24,12 @@ export type CategoryColProps = {
   setSelectedCategory: React.Dispatch<React.SetStateAction<string>>
 }
 
+export type ContactFormProps = {
+  onSubmit: () => void
+  emailSent: boolean
+  children: React.ReactNode
+}
+
 export type FormInputProps = {
   label: string
   name: string
@@ -33,18 +39,13 @@ export type FormInputProps = {
   message: string | undefined
 }
 
-// export type Product = {
-//   id: number
-//   title: string
-//   price: number
-//   description: string
-//   category: string
-//   image: string
-//   rating: {
-//     rate: number
-//     count: number
-//   }
-// }
+export type TextAreaInputProps = {
+  label: string
+  name: string
+  placeholder?: string
+  register: UseFormRegisterReturn
+  message: string | undefined
+}
 
 export type ProductItemProps = {
   title: string

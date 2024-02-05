@@ -17,7 +17,7 @@ const FormInput = ({
       {label}
     </label>
     <input
-      className="w-full border border-gray-300 p-2 rounded-md"
+      className="w-full border border-gray-300 p-2 rounded-md focus:outline-none"
       type={type}
       placeholder={placeholder}
       {...register}
