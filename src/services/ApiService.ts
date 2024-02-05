@@ -1,0 +1,117 @@
+import axios from "axios"
+import { getItem } from "../utils/localStorage"
+import { localStorageVars } from "../common/constants"
+
+const API_ENDPOINT = "https://fakestoreapi.com"
+
+const client = axios.create({
+  baseURL: API_ENDPOINT,
+  headers: {
+    "Content-Type": "application/json",
+  },
+})
+
+type Options = {
+  signal: number
+  useAuthorization: boolean
+  headers: {
+    [key: string]: string
+  }
+}
+
+class ApiService {
+  static authHeader() {
+    const accessToken = getItem(localStorageVars.token)
+    if (accessToken == null) return {}
+    return { "x-auth-token": accessToken }
+  }
+
+  static get(path: string, options: Options) {
+    const { signal, useAuthorization, headers } = options
+    if (useAuthorization) {
+      const authHeaders = this.authHeader()
+      if (authHeaders["x-auth-token"] != null) {
+        headers["x-auth-token"] = authHeaders["x-auth-token"]
+      }
+    }
+    return client({
+      method: "GET",
+      url: path,
+      headers,
+      signal: AbortSignal.timeout(signal),
+    })
+  }
+
+  static post(path: string, data: any, options: Options) {
+    const { useAuthorization, headers, signal } = options
+    if (useAuthorization) {
+      const authHeaders = this.authHeader()
+      if (authHeaders["x-auth-token"] != null) {
+        headers["x-auth-token"] = authHeaders["x-auth-token"]
+      }
+    }
+    return client({
+      method: "POST",
+      url: path,
+      data,
+      headers,
+      signal: AbortSignal.timeout(signal),
+    })
+  }
+
+  static patch(path: string, data: any, options: Options) {
+    const { useAuthorization, headers } = options
+    if (useAuthorization) {
+      const authHeaders = this.authHeader()
+      if (authHeaders["x-auth-token"] != null) {
+        headers["x-auth-token"] = authHeaders["x-auth-token"]
+      }
+    }
+    return client({
+      method: "PATCH",
+      url: path,
+      data,
+      headers,
+    })
+  }
+}
+
+/**
+ * axios interceptors runs before and after a request, letting the developer modify req,req more
+ * For more details on axios interceptor see https://github.com/axios/axios#interceptors
+ */
+client.interceptors.request.use((config) => {
+  // do something before executing the request
+  // For example tag along the bearer access token to request header or set a cookie
+  const requestConfig: any = config
+  const { headers } = config
+  requestConfig.headers = {
+    ...headers,
+    "x-auth-token": getItem(localStorageVars.token),
+  }
+
+  return requestConfig
+})
+
+client.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    /**
+     * Do something in case the response returns an error code [3**, 4**, 5**] etc
+     * For example, on token expiration retrieve a new access token, retry a failed request etc
+     */
+    const { response } = error
+    // const originalRequest = error.config;
+    if (response) {
+      if (response.status === 500) {
+        // do something here
+      } else {
+        return Promise.reject(response?.data)
+      }
+    }
+
+    return Promise.reject(error)
+  }
+)
+
+export { ApiService }

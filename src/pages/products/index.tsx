@@ -2,10 +2,32 @@ import React, { useState } from "react"
 import ProductList from "./components/ProductList"
 import CategoryCol from "./components/CategoryCol"
 import Breadcrumbs from "../../components/Breadcrumbs"
-import { products } from "../../utils/data"
+// import { products } from "../../utils/data"
+import { useQuery } from "@tanstack/react-query"
+import { ApiService } from "../../services/ApiService"
+import { API } from "../../common/apiEndPoints"
 
 const Products = () => {
   const [selectedCategory, setSelectedCategory] = useState("All")
+
+  const getAllProducts = async () => {
+    try {
+      const response = await ApiService.get(API.products.get, {
+        signal: 15000,
+        useAuthorization: false,
+        headers: {},
+      })
+      const { data } = response
+      return data
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
+  const { data: products } = useQuery({
+    queryKey: ["products"],
+    queryFn: getAllProducts,
+  })
 
   return (
     <>
@@ -21,7 +43,9 @@ const Products = () => {
               ? "All Products"
               : `Products in ${selectedCategory}`}
           </h2>
-          <ProductList category={selectedCategory} products={products} />
+          {products && (
+            <ProductList category={selectedCategory} products={products} />
+          )}
         </div>
       </div>
     </>

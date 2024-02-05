@@ -1,26 +1,21 @@
 import React from "react"
 import { useRenderStars } from "../../../utils/useRenderStars"
 import { ProductItemProps } from "../../../utils/types"
+import { useLocation } from "react-router-dom"
 
-const ProductItem = ({
-  title,
-  image,
-  description,
-  price,
-  category,
-  rating,
-  quantity,
-  setQuantity,
-  onClick,
-}: ProductItemProps) => {
+const ProductItem = ({ quantity, setQuantity, onClick }: ProductItemProps) => {
+  const { state } = useLocation()
+
+  const { title, image, description, price, category, rating } = state
+
   return (
-    <div className="flex p-16 pb-24">
-      <div className="w-1/2 flex justify-center items-center p-5">
+    <div className="flex p-16 pb-24 h-[50em]">
+      <div className="w-1/2 h-3/4 flex justify-center items-center p-5">
         <div className="h-[30em] w-[20em]">
           <img
             src={image}
             alt={title}
-            className="w-full h-auto object-contain"
+            className="w-full h-full object-contain"
           />
         </div>
       </div>

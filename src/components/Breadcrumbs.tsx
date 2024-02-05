@@ -5,8 +5,12 @@ const Breadcrumbs = () => {
   const location = useLocation()
   const pathnames = location.pathname.split("/").filter((x) => x)
 
-  const capitalize = (string: string) => {
-    return string && string[0].toUpperCase() + string.slice(1)
+  const capitalizeAndReplace = (string: string) => {
+    const capitalizedString =
+      string && string[0].toUpperCase() + string.slice(1)
+    const replacedString = capitalizedString.split("%20").join(" ")
+
+    return replacedString
   }
 
   return (
@@ -21,9 +25,9 @@ const Breadcrumbs = () => {
             return (
               <span key={name}>
                 {isLast ? (
-                  <span>{capitalize(name)}</span>
+                  <span>{capitalizeAndReplace(name)}</span>
                 ) : (
-                  <Link to={routeTo}>{capitalize(name)}</Link>
+                  <Link to={routeTo}>{capitalizeAndReplace(name)}</Link>
                 )}
                 {!isLast && " / "}
               </span>

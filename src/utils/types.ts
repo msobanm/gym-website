@@ -53,6 +53,13 @@ export type Product = {
 }
 
 export type ProductItemProps = {
+  quantity: number
+  setQuantity: React.Dispatch<React.SetStateAction<number>>
+  onClick: () => void
+}
+
+export type ProductListItemProps = {
+  id: number
   title: string
   image: string
   description: string
@@ -62,16 +69,6 @@ export type ProductItemProps = {
     rate: number
     count: number
   }
-  quantity: number
-  setQuantity: React.Dispatch<React.SetStateAction<number>>
-  onClick: () => void
-}
-
-export type ProductListItemProps = {
-  id: number
-  title: string
-  price: number
-  image: string
 }
 
 export type ProductListProps = {
