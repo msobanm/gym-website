@@ -1,14 +1,17 @@
 import React, { useState } from "react"
-import { ProductItemProps } from "../../../utils/types"
+import { ProductListItemProps } from "../../../utils/types"
+import { useNavigate } from "react-router-dom"
 
-const ProductItem = ({ title, price, image }: ProductItemProps) => {
+const ProductListItem = ({ id, title, price, image }: ProductListItemProps) => {
   const [isHovered, setIsHovered] = useState(false)
+  const navigate = useNavigate()
+
   return (
     <li
       className="mb-2 p-4 min-w-40 min-h-60 flex flex-col gap-2 items-center cursor-pointer "
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      onClick={() => console.log("div clicked!")}
+      onClick={() => navigate(`/products/${id}`)}
     >
       <div className="w-40 h-60 relative">
         <img src={image} className="w-full h-full object-contain " />
@@ -32,4 +35,4 @@ const ProductItem = ({ title, price, image }: ProductItemProps) => {
   )
 }
 
-export default ProductItem
+export default ProductListItem

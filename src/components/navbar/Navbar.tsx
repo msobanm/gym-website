@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 
 const Navbar = () => {
   return (
-    <nav className="bg-white p-4 fixed z-50 w-full">
+    <nav className="bg-white p-2 fixed z-50 w-full">
       <div className="container mx-auto grid grid-cols-3 items-center content-center">
         <ul className="flex gap-12">
           {navList.map((item) => (

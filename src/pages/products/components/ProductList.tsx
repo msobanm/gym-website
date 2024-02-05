@@ -1,7 +1,7 @@
 import React from "react"
 import { ProductListProps } from "../../../utils/types"
 import { products } from "../../../utils/data"
-import ProductItem from "./ProductItem"
+import ProductListItem from "./ProductListItem"
 
 const ProductList = ({ category }: ProductListProps) => {
   const filteredProducts =
@@ -12,7 +12,7 @@ const ProductList = ({ category }: ProductListProps) => {
   return (
     <ul className="grid grid-cols-4 gap-5">
       {filteredProducts.map((product) => (
-        <ProductItem key={product.id} {...product} />
+        <ProductListItem key={product.id} {...product} />
       ))}
     </ul>
   )

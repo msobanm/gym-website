@@ -39,15 +39,23 @@ export type FormInputProps = {
   message: string | undefined
 }
 
-export type TextAreaInputProps = {
-  label: string
-  name: string
-  placeholder?: string
-  register: UseFormRegisterReturn
-  message: string | undefined
+export type ProductItemProps = {
+  title: string
+  image: string
+  description: string
+  price: number
+  category: string
+  rating: {
+    rate: number
+    count: number
+  }
+  quantity: number
+  setQuantity: React.Dispatch<React.SetStateAction<number>>
+  onClick: () => void
 }
 
-export type ProductItemProps = {
+export type ProductListItemProps = {
+  id: number
   title: string
   price: number
   image: string
@@ -66,4 +74,12 @@ export type ReviewCardProps = {
 export type ShopItemProps = {
   path: string
   index: number
+}
+
+export type TextAreaInputProps = {
+  label: string
+  name: string
+  placeholder?: string
+  register: UseFormRegisterReturn
+  message: string | undefined
 }
