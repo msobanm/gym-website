@@ -12,7 +12,7 @@ const ProductList = ({ category }: ProductListProps) => {
   return (
     <ul className="grid grid-cols-4 gap-5">
       {filteredProducts.map((product) => (
-        <ProductItem {...product} />
+        <ProductItem key={product.id} {...product} />
       ))}
     </ul>
   )
