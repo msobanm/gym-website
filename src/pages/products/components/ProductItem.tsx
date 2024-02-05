@@ -13,10 +13,13 @@ const ProductItem = ({ title, price, image }: ProductItemProps) => {
       <div className="w-40 h-60 relative">
         <img src={image} className="w-full h-full object-contain " />
         <button
-          className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary text-white px-4 p-2 w-3/4 h-10 transition-all duration-200 ease-in-out ${
+          className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 bg-primary text-white px-4 p-2 w-3/4 h-10 transition-all duration-200 ease-in-out ${
             isHovered ? "opacity-100" : "opacity-0"
           }`}
-          onClick={() => console.log("button clicked!")}
+          onClick={(event) => {
+            event.stopPropagation()
+            console.log("button clicked!")
+          }}
         >
           Add to Cart
         </button>
