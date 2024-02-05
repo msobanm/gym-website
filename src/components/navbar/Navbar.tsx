@@ -10,7 +10,11 @@ const Navbar = () => {
         <ul className="flex gap-12">
           {navList.map((item) => (
             <li className="text-primary cursor-pointer" key={item.title}>
-              <Link to={`${item.title.toLowerCase()}`}>{item.title}</Link>
+              <Link
+                to={item.title === "Home" ? `/` : `${item.title.toLowerCase()}`}
+              >
+                {item.title}
+              </Link>
             </li>
           ))}
         </ul>
