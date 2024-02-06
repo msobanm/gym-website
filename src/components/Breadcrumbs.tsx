@@ -36,8 +36,8 @@ const Breadcrumbs = () => {
             const routeTo = `/${pathnames.slice(0, index + 1).join("/")}`
             const isLast = index === pathnames.length - 1
             return (
-              <>
-                <span key={name} className="text-secondary">
+              <span key={name}>
+                <span className="text-secondary">
                   {isLast ? (
                     <span>{capitalizeAndReplace(name)}</span>
                   ) : (
@@ -48,7 +48,7 @@ const Breadcrumbs = () => {
                   )}
                 </span>
                 <span>{!isLast && " > "}</span>
-              </>
+              </span>
             )
           })}
         </div>
