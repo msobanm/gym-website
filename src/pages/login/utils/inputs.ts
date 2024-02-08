@@ -1,14 +1,14 @@
 export const inputs = [
   {
-    label: "Email",
-    name: "email",
-    type: "email",
-    placeholder: "Ex. john@email.com",
+    label: "User Name",
+    name: "username",
+    type: "username",
+    placeholder: "Ex. mor_2314",
   },
   {
     label: "Password",
     name: "password",
     type: "password",
-    placeholder: "",
+    placeholder: "Ex. 83r5^_",
   },
 ] as const
