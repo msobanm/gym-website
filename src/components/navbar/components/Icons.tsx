@@ -42,7 +42,7 @@ export default function Icons() {
           onClick={() => handleOnClick(icon.name)}
           className={`w-30 h-10 select-none flex justify-center items-center hover:bg-secondary hover:text-white cursor-pointer p-2 rounded-full transition duration-200 ease-in-out ${
             icon.name === "user"
-              ? auth && isOpen
+              ? isOpen
                 ? "bg-secondary text-white"
                 : "bg-white"
               : ""
@@ -52,7 +52,7 @@ export default function Icons() {
           <icon.icon className="h-6 w-6" />
         </div>
       ))}
-      <Dropdown isOpen={auth ? isOpen : false} />
+      <Dropdown isOpen={isOpen} auth={auth ? true : false} />
     </div>
   )
 }
