@@ -23,7 +23,12 @@ const Products = () => {
     }
   }
 
-  const { data: products } = useQuery({
+  const {
+    data: products,
+    isPending,
+    error,
+    isError,
+  } = useQuery({
     queryKey: ["products"],
     queryFn: getAllProducts,
   })
@@ -43,7 +48,13 @@ const Products = () => {
               : `Products in ${selectedCategory}`}
           </h2>
           {products && (
-            <ProductList category={selectedCategory} products={products} />
+            <ProductList
+              category={selectedCategory}
+              products={products}
+              isPending={isPending}
+              isError={isError}
+              error={error}
+            />
           )}
         </div>
       </div>

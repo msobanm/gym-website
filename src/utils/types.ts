@@ -74,6 +74,9 @@ export type ProductListItemProps = {
 export type ProductListProps = {
   category: string
   products: Product[]
+  isPending: boolean
+  isError: boolean
+  error: Error | null
 }
 
 export type ReviewCardProps = {
