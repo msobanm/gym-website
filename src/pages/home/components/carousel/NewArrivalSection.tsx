@@ -19,7 +19,7 @@ const NewArrivalSection = () => {
 
   return (
     <div className="container mx-auto my-8 px-5 pt-5 relative">
-      <h2 className="text-4xl font-bold text-center mb-6">New Arrivals</h2>
+      <h2 className="text-4xl text-center mb-12 font-serif">New Arrivals</h2>
       <Slider {...settings}>
         {arrivals.map((item) => (
           <CarouselItem

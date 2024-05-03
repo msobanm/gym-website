@@ -4,6 +4,7 @@ import NewArrivalSection from "./components/carousel/NewArrivalSection"
 import ShopSection from "./components/shop/ShopSection"
 import ReviewSection from "./components/reviews/ReviewSection"
 import VideoPlayerSection from "./components/videoplayer/VideoPlayerSection"
+import SaleSection from "./components/sale/SaleSection"
 
 const Home = () => {
   return (
@@ -11,7 +12,8 @@ const Home = () => {
       <HeroSection />
       <NewArrivalSection />
       <ShopSection />
-      <VideoPlayerSection />
+      {/* <VideoPlayerSection /> */}
+      <SaleSection />
       <ReviewSection />
     </div>
   )
