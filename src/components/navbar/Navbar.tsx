@@ -1,5 +1,5 @@
 import React from "react"
-import { navList } from "./utils/navList"
+import { navList } from "../../utils/data"
 import { Link } from "react-router-dom"
 import Icons from "./components/Icons"
 

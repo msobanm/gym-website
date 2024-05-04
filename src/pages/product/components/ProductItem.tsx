@@ -2,6 +2,7 @@ import React from "react"
 import { renderStars } from "../../../utils/renderStars"
 import { ProductItemProps } from "../../../utils/types"
 import { useLocation } from "react-router-dom"
+import Select from "../../../components/Select"
 
 const ProductItem = ({ quantity, setQuantity, onClick }: ProductItemProps) => {
   const { state } = useLocation()
@@ -33,18 +34,7 @@ const ProductItem = ({ quantity, setQuantity, onClick }: ProductItemProps) => {
         <p className="text-gray-500">{`${rating.rate} (${rating.count} reviews)`}</p>
         <div className="flex gap-4 items-center mt-6">
           <label className="text-gray-700">Quantity:</label>
-          <select
-            className="border border-gray-300 p-2 rounded-md"
-            value={quantity}
-            onChange={(e) => setQuantity(parseInt(e.target.value, 10))}
-          >
-            <option value={1}>1</option>
-            <option value={2}>2</option>
-            <option value={3}>3</option>
-            <option value={4}>4</option>
-            <option value={5}>5</option>
-          </select>
-
+          <Select quantity={quantity} setQuantity={setQuantity} />
           <button
             className="bg-secondary text-white px-4 py-2 rounded-md hover:bg-opacity-80"
             onClick={onClick}

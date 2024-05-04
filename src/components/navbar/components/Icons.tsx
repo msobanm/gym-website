@@ -3,6 +3,7 @@ import { CiUser, CiShoppingCart } from "react-icons/ci"
 import { FaCaretDown } from "react-icons/fa"
 import Dropdown from "./Dropdown"
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 type UserData = {
   firstName: string
@@ -12,6 +13,7 @@ type UserData = {
 export default function Icons() {
   const auth = useAuthUser<UserData>()
   const [isOpen, setIsOpen] = useState(false)
+  const navigate = useNavigate()
 
   function getNameLetters() {
     if (auth) {
@@ -26,6 +28,9 @@ export default function Icons() {
   function handleOnClick(name: string) {
     if (name === "user") {
       setIsOpen(!isOpen)
+    }
+    if (name === "cart") {
+      navigate("/cart")
     }
   }
   const nameLetters = getNameLetters()
