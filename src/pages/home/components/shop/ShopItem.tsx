@@ -22,8 +22,8 @@ const ShopItem = ({ index, path }: ShopItemProps) => {
       />
 
       <div
-        className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  border-2 border-white text-white px-4 py-2 rounded-full transition duration-200 ease-in-out ${
-          isHovered === index ? "bg-white text-black" : ""
+        className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  border-2 border-white px-4 py-2 rounded-full transition duration-200 ease-in-out ${
+          isHovered === index ? "bg-white text-primary" : "text-white"
         }`}
       >
         BUY NOW
