@@ -1,12 +1,13 @@
-// import Home from "./pages/home"
-// import Login from "./pages/login"
-import Register from "./pages/register"
+import { Outlet } from "react-router-dom"
+import Footer from "./components/footer/Footer"
+import Navbar from "./components/navbar/Navbar"
 
 function App() {
   return (
     <>
-      <Register />
-      {/* <Login /> */}
+      <Navbar />
+      <Outlet />
+      <Footer />
     </>
   )
 }
