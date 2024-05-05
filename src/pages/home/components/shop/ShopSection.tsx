@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 
-const ShopSection: React.FC = () => {
+const ShopSection = () => {
   const images = [
     { path: "/img/shop/1.jpg" },
     { path: "/img/shop/2.jpg" },

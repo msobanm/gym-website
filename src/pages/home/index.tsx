@@ -7,7 +7,7 @@ import ShopSection from "./components/shop/ShopSection"
 import ReviewSection from "./components/reviews/ReviewSection"
 import VideoPlayerSection from "./components/videoplayer/VideoPlayerSection"
 
-const Home: React.FC = () => {
+const Home = () => {
   return (
     <div className="flex flex-col justify-between min-h-svh">
       <Navbar />

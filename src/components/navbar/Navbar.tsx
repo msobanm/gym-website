@@ -2,7 +2,7 @@ import React from "react"
 import { navList } from "./utils/navList"
 import { icons } from "./utils/icons"
 
-const Navbar: React.FC = () => {
+const Navbar = () => {
   return (
     <nav className="bg-white p-4 fixed z-50 w-full">
       <div className="container mx-auto grid grid-cols-3 items-center content-center">
