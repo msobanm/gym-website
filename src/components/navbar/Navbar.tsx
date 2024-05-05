@@ -9,16 +9,15 @@ const Navbar = () => {
       <div className="px-8 grid grid-cols-3 items-center content-center">
         <ul className="flex gap-8 h-full items-center">
           {navList.map((item) => (
-            <li
-              className="flex items-center px-4 text-primary cursor-pointer border-b-4 border-transparent hover:border-secondary h-full transition duration-100 ease-in-out"
+            <Link
+              to={item.title === "Home" ? `/` : `${item.title.toLowerCase()}`}
               key={item.title}
+              className="h-full"
             >
-              <Link
-                to={item.title === "Home" ? `/` : `${item.title.toLowerCase()}`}
-              >
+              <li className="flex items-center px-4 text-primary cursor-pointer border-b-4 border-transparent hover:border-secondary h-full transition duration-100 ease-in-out">
                 {item.title}
-              </Link>
-            </li>
+              </li>
+            </Link>
           ))}
         </ul>
         <Link
