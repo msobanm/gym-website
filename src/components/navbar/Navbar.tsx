@@ -1,6 +1,7 @@
 import React from "react"
 import { navList } from "./utils/navList"
 import { icons } from "./utils/icons"
+import { Link } from "react-router-dom"
 
 const Navbar = () => {
   return (
@@ -9,7 +10,7 @@ const Navbar = () => {
         <ul className="flex gap-12">
           {navList.map((item) => (
             <li className="text-primary cursor-pointer" key={item.title}>
-              {item.title}
+              <Link to={`${item.title.toLowerCase()}`}>{item.title}</Link>
             </li>
           ))}
         </ul>

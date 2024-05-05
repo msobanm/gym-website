@@ -7,7 +7,7 @@ import VideoPlayerSection from "./components/videoplayer/VideoPlayerSection"
 
 const Home = () => {
   return (
-    <div className="flex flex-col justify-between min-h-svh">
+    <div className="flex flex-col">
       <HeroSection />
       <NewArrivalSection />
       <ShopSection />
