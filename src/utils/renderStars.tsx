@@ -1,6 +1,6 @@
 import { FaRegStar, FaStar } from "react-icons/fa"
 
-export const useRenderStars = (rating: number): React.ReactNode => {
+export const renderStars = (rating: number): React.ReactNode => {
   const filledStars = Array.from({ length: Math.floor(rating) }, (_, index) => (
     <FaStar key={`filled_${index}`} className="text-yellow-500" />
   ))

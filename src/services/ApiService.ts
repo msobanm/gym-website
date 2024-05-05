@@ -2,7 +2,7 @@ import axios from "axios"
 import { getItem } from "../utils/localStorage"
 import { localStorageVars } from "../common/constants"
 
-const API_ENDPOINT = "https://fakestoreapi.com"
+const API_ENDPOINT = ""
 
 const client = axios.create({
   baseURL: API_ENDPOINT,
@@ -76,10 +76,6 @@ class ApiService {
   }
 }
 
-/**
- * axios interceptors runs before and after a request, letting the developer modify req,req more
- * For more details on axios interceptor see https://github.com/axios/axios#interceptors
- */
 client.interceptors.request.use((config) => {
   // do something before executing the request
   // For example tag along the bearer access token to request header or set a cookie

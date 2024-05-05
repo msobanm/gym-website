@@ -1,5 +1,5 @@
 import React from "react"
-import { useRenderStars } from "../../../utils/useRenderStars"
+import { renderStars } from "../../../utils/renderStars"
 import { ProductItemProps } from "../../../utils/types"
 import { useLocation } from "react-router-dom"
 
@@ -29,7 +29,7 @@ const ProductItem = ({ quantity, setQuantity, onClick }: ProductItemProps) => {
           Category:{" "}
           <span className="text-secondary">{category.toUpperCase()}</span>
         </p>
-        <div className="flex items-center">{useRenderStars(rating.rate)}</div>
+        <div className="flex items-center">{renderStars(rating.rate)}</div>
         <p className="text-gray-500">{`${rating.rate} (${rating.count} reviews)`}</p>
         <div className="flex gap-4 items-center mt-6">
           <label className="text-gray-700">Quantity:</label>
