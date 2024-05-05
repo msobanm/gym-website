@@ -1,19 +1,15 @@
 import React, { useState } from "react"
 import { ShopItemProps } from "../../../../utils/types"
+import { useNavigate } from "react-router-dom"
 
 const ShopItem = ({ index, path }: ShopItemProps) => {
   const [isHovered, setHovered] = useState<number | null>(null)
-
-  const handleClick = () => {
-    console.log(`shop item clicked ${index}`)
-  }
 
   return (
     <div
       className="relative h-full cursor-pointer"
       onMouseEnter={() => setHovered(index)}
       onMouseLeave={() => setHovered(null)}
-      onClick={handleClick}
     >
       <img
         src={path}

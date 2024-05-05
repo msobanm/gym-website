@@ -1,6 +1,7 @@
 import React from "react"
 import ShopItem from "./ShopItem"
 import { shopItemImages } from "../../../../utils/data"
+import { Link } from "react-router-dom"
 
 const ShopSection = () => {
   return (
@@ -11,7 +12,9 @@ const ShopSection = () => {
         </div>
 
         {shopItemImages.map((item, index) => (
-          <ShopItem key={index} index={index} path={item.path} />
+          <Link to={"/products"} key={index}>
+            <ShopItem index={index} path={item.path} />
+          </Link>
         ))}
       </div>
     </div>
