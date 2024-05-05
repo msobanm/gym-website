@@ -2,6 +2,7 @@ import React from "react"
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
+
 import { NextArrow, PrevArrow } from "./CarouselArrows"
 import CarouselItem from "./CarouselItem"
 import { arrivals } from "../../../../utils/data"
