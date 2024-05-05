@@ -59,7 +59,7 @@ export type ProductItemProps = {
   onClick: () => void
 }
 
-export type ProductListItemProps = {
+export type ProductProps = {
   id: number
   title: string
   image: string

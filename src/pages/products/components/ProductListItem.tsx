@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { ProductListItemProps } from "../../../utils/types"
+import { ProductProps } from "../../../utils/types"
 import { useNavigate } from "react-router-dom"
 
 const ProductListItem = ({
@@ -10,7 +10,7 @@ const ProductListItem = ({
   price,
   category,
   rating,
-}: ProductListItemProps) => {
+}: ProductProps) => {
   const [isHovered, setIsHovered] = useState(false)
   const navigate = useNavigate()
 
