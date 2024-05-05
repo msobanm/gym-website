@@ -11,7 +11,7 @@ const NewArrivalSection = () => {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 1,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
@@ -22,7 +22,14 @@ const NewArrivalSection = () => {
       <h2 className="text-4xl font-bold text-center mb-6">New Arrivals</h2>
       <Slider {...settings}>
         {arrivals.map((item) => (
-          <CarouselItem key={item.id} name={item.name} image={item.image} />
+          <CarouselItem
+            key={item.id}
+            name={item.name}
+            image={item.image}
+            onClick={() =>
+              console.log(`Carousel Item number ${item.id} clicked!`)
+            }
+          />
         ))}
       </Slider>
     </div>
