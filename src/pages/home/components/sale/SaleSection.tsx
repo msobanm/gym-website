@@ -103,7 +103,7 @@ const SaleSection = () => {
   return (
     <div className="p-10">
       <h2 className="text-4xl mb-12 font-serif">SALE</h2>
-      <div className="grid gap-y-12 gap-x-2 grid-cols-4">
+      <div className="grid gap-y-12 gap-x-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
         {data.map((item, index) => (
           <SaleItem
             key={item.id}

@@ -18,7 +18,7 @@ const ShopItem = ({ index, path }: ShopItemProps) => {
       />
 
       <div
-        className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  border-2 border-white px-4 py-2 rounded-full transition duration-200 ease-in-out ${
+        className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-11 w-28 flex justify-center items-center border-2 border-white rounded-full transition duration-200 ease-in-out ${
           isHovered === index ? "bg-white text-primary" : "text-white"
         }`}
       >

@@ -15,12 +15,30 @@ const NewArrivalSection = () => {
     slidesToScroll: 1,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
+    responsive: [
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false,
+        },
+      },
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          arrows: false,
+        },
+      },
+    ],
   }
 
   return (
-    <div className="px-20 py-12 relative">
+    <div className="lg:px-12 xl:px-20 py-12 relative">
       <h2 className="text-4xl text-center mb-12 font-serif">New Arrivals</h2>
-      <Slider {...settings} className="">
+      <Slider {...settings}>
         {arrivals.map((item) => (
           <CarouselItem
             key={item.id}
