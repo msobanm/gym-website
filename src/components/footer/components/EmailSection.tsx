@@ -12,7 +12,7 @@ const EmailSection: React.FC = () => {
             placeholder="Your Email"
             className="p-2 w-full border border-white rounded focus:outline-none focus:border-secondary-2 text-primary"
           />
-          <button className="bg-secondary-2 text-white px-4 py-2 rounded hover:bg-secondary focus:outline-none transition duration-300 ease-in-outtransition duration-100 ease-in-out">
+          <button className="bg-secondary-2 text-white px-4 py-2 rounded hover:bg-secondary focus:outline-none transition duration-200 ease-in-out">
             <IoMdSend />
           </button>
         </div>
