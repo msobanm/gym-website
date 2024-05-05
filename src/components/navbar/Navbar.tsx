@@ -14,9 +14,9 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
-        <div className="text-primary font-bold text-xl justify-self-center cursor-pointer">
-          Your Logo
-        </div>
+        <Link to={`/`} className="h-12 w-12 justify-self-center cursor-pointer">
+          <img src="/logo.png" className="h-full w-full object-contain" />
+        </Link>
         <div className="flex gap-10 justify-self-end">
           {icons.map((icon, i) => (
             <div
