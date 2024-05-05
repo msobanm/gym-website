@@ -32,3 +32,9 @@ export const reviews = [
     rating: 2,
   },
 ]
+
+export const shopItemImages = [
+  { path: "/img/shop/1.jpg" },
+  { path: "/img/shop/2.jpg" },
+  { path: "/img/shop/3.jpg" },
+]
