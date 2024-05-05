@@ -40,7 +40,7 @@ export default function Icons() {
     { name: "cart", icon: CiShoppingCart },
   ]
   return (
-    <div className="flex gap-5 justify-self-end relative pb-2">
+    <div className="flex gap-5 relative pb-2 max-[690px]:hidden">
       {icons.map((icon) => (
         <div
           key={icon.name}
