@@ -14,7 +14,6 @@ import Contact from "./pages/contact"
 import Product from "./pages/product"
 import Login from "./pages/login"
 import Register from "./pages/register"
-import useAuth from "./utils/hooks/useAuth"
 import Cart from "./pages/cart"
 import useAuthUser from "react-auth-kit/hooks/useAuthUser"
 

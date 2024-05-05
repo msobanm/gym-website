@@ -3,12 +3,14 @@ import ProductList from "./components/ProductList"
 import CategoryCol from "./components/CategoryCol"
 import Breadcrumbs from "../../components/Breadcrumbs"
 import { useGetAllProducts } from "../../utils/hooks/useGetAllProducts"
+import Spinner from "../../components/Spinner"
 
 const Products = () => {
   const [selectedCategory, setSelectedCategory] = useState("All")
 
-  const { products, isPending, isError, error } = useGetAllProducts()
+  const { products, isPending } = useGetAllProducts()
 
+  console.log("page rendered!")
   return (
     <>
       <Breadcrumbs />
@@ -23,14 +25,14 @@ const Products = () => {
               ? "All Products"
               : `Products in ${selectedCategory}`}
           </h2>
-          {products && (
-            <ProductList
-              category={selectedCategory}
-              products={products}
-              isPending={isPending}
-              isError={isError}
-              error={error}
-            />
+          {isPending ? (
+            <div className="h-full w-full flex justify-center items-center">
+              <Spinner />
+            </div>
+          ) : (
+            products && (
+              <ProductList category={selectedCategory} products={products} />
+            )
           )}
         </div>
       </div>
