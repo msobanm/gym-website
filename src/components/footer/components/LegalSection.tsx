@@ -1,5 +1,5 @@
 import React from "react"
-import { legal } from "../utils/legal"
+import { legal } from "../../../utils/data"
 
 const LegalSection = () => {
   return (

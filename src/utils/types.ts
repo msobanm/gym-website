@@ -11,6 +11,7 @@ export type ButtonProps = {
   title: string | React.ReactNode
   type?: "submit" | "reset" | "button" | undefined
   onClick?: () => void
+  primary?: boolean
 }
 
 export type CarouselItemProps = {

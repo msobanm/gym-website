@@ -9,6 +9,7 @@ import Product from "./pages/product"
 import Login from "./pages/login"
 import Register from "./pages/register"
 import useAuth from "./utils/hooks/useAuth"
+import Cart from "./pages/cart"
 
 function App() {
   const { isAuth } = useAuth()
@@ -24,6 +25,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/products" element={<Products />} />
         <Route path="/products/:title" element={<Product />} />
+        <Route path="/cart" element={<Cart />} />
       </Route>
     </Routes>
   )

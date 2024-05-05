@@ -13,7 +13,7 @@ const About = () => {
         </p>
       </div>
       <div className="h-full w-full">
-        <img src="/img/hug.png" className="w-full h-full object-contain" />
+        <img src="/img/hug.png" className="w-full h-[50em] object-contain" />
       </div>
     </div>
   )

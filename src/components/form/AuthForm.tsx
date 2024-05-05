@@ -1,6 +1,7 @@
 import React from "react"
 import Button from "../Button"
 import { AuthFormProps } from "../../utils/types"
+import { Link } from "react-router-dom"
 
 const AuthForm = ({ title, onSubmit, children }: AuthFormProps) => {
   return (
@@ -15,10 +16,13 @@ const AuthForm = ({ title, onSubmit, children }: AuthFormProps) => {
           {title === "Register"
             ? "Already have an account? "
             : "Don't have an account? "}
-          <span className="text-secondary cursor-pointer">
+          <Link
+            to={title === "Register" ? "/login" : "/register"}
+            className="text-secondary cursor-pointer"
+          >
             {" "}
             {title === "Register" ? "Login Here!" : "Register Here!"}
-          </span>
+          </Link>
         </p>
       </div>
     </div>

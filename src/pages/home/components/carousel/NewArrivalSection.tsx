@@ -18,9 +18,9 @@ const NewArrivalSection = () => {
   }
 
   return (
-    <div className="container mx-auto my-8 px-5 pt-5 relative">
+    <div className="px-20 py-12 relative">
       <h2 className="text-4xl text-center mb-12 font-serif">New Arrivals</h2>
-      <Slider {...settings}>
+      <Slider {...settings} className="">
         {arrivals.map((item) => (
           <CarouselItem
             key={item.id}
