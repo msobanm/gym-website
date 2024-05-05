@@ -2,8 +2,24 @@ import React, { useState } from "react"
 import { totalPriceCalculator } from "../../../utils/helpers"
 import Select from "../../../components/Select"
 
-const CartItem = () => {
-  const [quantity, setQuantity] = useState(1)
+type CartItemProps = {
+  name: string
+  category: string
+  color: string
+  size: number
+  price: number
+  quantity: number
+}
+
+const CartItem = ({
+  name,
+  category,
+  color,
+  size,
+  price,
+  quantity,
+}: CartItemProps) => {
+  const [itemQuantity, setItemQuantity] = useState(quantity)
   return (
     <div className="flex p-5 justify-between">
       <div className="w-3/5 flex gap-10">
@@ -12,23 +28,21 @@ const CartItem = () => {
           className="h-40 object-cover rounded-md"
         />
         <div className="mt-5 flex flex-col gap-3">
-          <p className="text-gray-500">WOMEN</p>
-          <p className="text-lg font-medium -mt-3">
-            2 Piece - Embroidered Suit
+          <p className="text-gray-500">{category}</p>
+          <p className="text-lg font-medium -mt-3">{name}</p>
+          <p className="text-gray-500">
+            Color: <span className="text-black">{color}</span>
           </p>
           <p className="text-gray-500">
-            Color: <span className="text-black">Black</span>
-          </p>
-          <p className="text-gray-500">
-            Size: <span className="text-black">42</span>
+            Size: <span className="text-black">{size}</span>
           </p>
         </div>
       </div>
       <div className="flex w-2/5 justify-between items-center">
-        <h2 className="text-lg font-bold">Rs. 9,000</h2>
-        <Select quantity={quantity} setQuantity={setQuantity} />
+        <h2 className="text-lg font-bold">Rs. {price.toLocaleString()}</h2>
+        <Select quantity={itemQuantity} setQuantity={setItemQuantity} />
         <h2 className="text-lg text-secondary font-bold">
-          Rs. {totalPriceCalculator(9000, quantity)}
+          Rs. {totalPriceCalculator(price, itemQuantity)}
         </h2>
       </div>
     </div>
