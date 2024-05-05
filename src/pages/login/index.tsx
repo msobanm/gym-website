@@ -5,10 +5,9 @@ import { z } from "zod"
 import FormInput from "../../components/form/FormInput"
 import AuthForm from "../../components/form/AuthForm"
 import { inputs } from "./utils/inputs"
-import { ApiService } from "../../services/ApiService"
-import { API } from "../../common/apiEndPoints"
 import useSignIn from "react-auth-kit/hooks/useSignIn"
 import { useNavigate } from "react-router-dom"
+import { login } from "../../api/login"
 
 const LoginFormSchema = z.object({
   username: z.string().min(1),
@@ -34,31 +33,15 @@ const Login = () => {
   const navigate = useNavigate()
 
   const onSubmit: SubmitHandler<LoginFormInput> = async (data) => {
-    try {
-      const res = await ApiService.post(
-        API.auth.login,
-        { ...data, expiresInMins: 3600 },
-        {
-          signal: 15000,
-          useAuthorization: false,
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      )
-      const { token, ...authUserState } = res.data
-      console.log({ token, authUserState })
-      signIn({
-        auth: {
-          token: token,
-          type: "Bearer",
-        },
-        userState: authUserState,
-      })
-      navigate("/")
-    } catch (error) {
-      console.log(error)
-    }
+    const { token, authUserState } = await login<LoginFormInput>(data)
+    signIn({
+      auth: {
+        token: token,
+        type: "Bearer",
+      },
+      userState: authUserState,
+    })
+    navigate("/")
   }
 
   return (

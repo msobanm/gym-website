@@ -2,36 +2,12 @@ import React, { useState } from "react"
 import ProductList from "./components/ProductList"
 import CategoryCol from "./components/CategoryCol"
 import Breadcrumbs from "../../components/Breadcrumbs"
-import { useQuery } from "@tanstack/react-query"
-import { ApiService } from "../../services/ApiService"
-import { API } from "../../common/apiEndPoints"
+import { useGetAllProducts } from "../../utils/hooks/useGetAllProducts"
 
 const Products = () => {
   const [selectedCategory, setSelectedCategory] = useState("All")
 
-  const getAllProducts = async () => {
-    try {
-      const response = await ApiService.get(API.products.get, {
-        signal: 15000,
-        useAuthorization: false,
-        headers: {},
-      })
-      const { data } = response
-      return data
-    } catch (err) {
-      console.error(err)
-    }
-  }
-
-  const {
-    data: products,
-    isPending,
-    error,
-    isError,
-  } = useQuery({
-    queryKey: ["products"],
-    queryFn: getAllProducts,
-  })
+  const { products, isPending, isError, error } = useGetAllProducts()
 
   return (
     <>
