@@ -16,6 +16,7 @@ import Login from "./pages/login"
 import Register from "./pages/register"
 import useAuth from "./utils/hooks/useAuth"
 import Cart from "./pages/cart"
+import useAuthUser from "react-auth-kit/hooks/useAuthUser"
 
 const router = createBrowserRouter([{ path: "*", element: <Root /> }])
 
@@ -24,14 +25,15 @@ function App() {
 }
 
 function Root() {
-  const { isAuth } = useAuth()
+  const auth = useAuthUser()
+
   return (
     <>
       <ScrollRestoration />
       <Routes>
         <Route path="*" element={<Error />} />
-        {!isAuth && <Route path="/login" element={<Login />} />}
-        {!isAuth && <Route path="/register" element={<Register />} />}
+        {!auth && <Route path="/login" element={<Login />} />}
+        {!auth && <Route path="/register" element={<Register />} />}
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
