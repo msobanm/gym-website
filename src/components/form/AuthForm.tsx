@@ -5,7 +5,7 @@ import { AuthFormProps } from "../../utils/types"
 const AuthForm = ({ title, onSubmit, children }: AuthFormProps) => {
   return (
     <div className="w-full h-svh flex justify-center items-center bg-primary">
-      <div className="w-[23em] h-3/4 p-6 flex flex-col gap-5 bg-white rounded-md shadow-md">
+      <div className="w-[23em] min-h-3/4 p-6 flex flex-col gap-5 bg-white rounded-md shadow-md">
         <h1 className="text-4xl font-bold">{title}</h1>
         <form onSubmit={onSubmit} className="flex flex-col gap-5">
           {children}
