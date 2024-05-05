@@ -5,10 +5,10 @@ import { ReviewCardProps } from "../../../../utils/types"
 const ReviewCard = ({ author, content, rating }: ReviewCardProps) => {
   const renderStars = (rating: number): React.ReactNode => {
     const filledStars = Array.from({ length: rating }, (_, index) => (
-      <FaStar key={index} className="text-yellow-500" />
+      <FaStar key={`filled_${index}`} className="text-yellow-500" />
     ))
     const emptyStars = Array.from({ length: 5 - rating }, (_, index) => (
-      <FaRegStar key={index} className="text-yellow-500" />
+      <FaRegStar key={`empty_${index}`} className="text-yellow-500" />
     ))
     return [...filledStars, ...emptyStars]
   }
