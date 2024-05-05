@@ -1,6 +1,6 @@
 import React from "react"
 import { CiUser, CiShoppingCart } from "react-icons/ci"
-import { navList } from "../utils/navList"
+import { navList } from "./utils/navList"
 
 const Navbar: React.FC = () => {
   return (
