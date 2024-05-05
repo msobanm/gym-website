@@ -1,4 +1,5 @@
 import React from "react"
+import Button from "../../../../components/Button"
 
 const HeroSection: React.FC = () => {
   return (
@@ -10,9 +11,10 @@ const HeroSection: React.FC = () => {
         <p className="text-lg text-white md:text-xl mb-6">
           You can buy your clothes here :)
         </p>
-        <button className="bg-secondary text-white px-6 py-3 rounded hover:bg-secondary-2 focus:outline-none transition duration-200 ease-in-out shadow-md">
-          Shop Now
-        </button>
+        <Button
+          title="SHOP NOW"
+          onClick={() => console.log("Shop Now clicked!")}
+        />
       </div>
     </div>
   )
