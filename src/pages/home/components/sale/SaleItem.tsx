@@ -1,25 +1,45 @@
 import React, { useState } from "react"
 import Discount from "../../../../components/Discount"
+import { useNavigate } from "react-router-dom"
 
 type SaleItemProps = {
+  id: number
   name: string
-  path: string
+  image: string
+  description: string
   initial_price: number
   final_price: number
   index: number
+  category: string
+  rating: number
 }
 
 const SaleItem = ({
+  id,
   name,
-  path,
+  image,
+  description,
   initial_price,
   final_price,
   index,
+  category,
+  rating,
 }: SaleItemProps) => {
   const [isHovered, setHovered] = useState<number | null>(null)
+  const navigate = useNavigate()
 
   const handleClick = () => {
-    console.log(`shop item clicked ${index}`)
+    navigate(`/products/${name}`, {
+      state: {
+        id,
+        title: name,
+        final_price,
+        image,
+        description,
+        category,
+        rating,
+      },
+    })
   }
   return (
     <div
@@ -30,7 +50,7 @@ const SaleItem = ({
     >
       <Discount initial_price={initial_price} final_price={final_price} />
       <img
-        src={path}
+        src={image}
         alt={`Product ${index}`}
         className="h-[35em] object-cover"
       />
@@ -39,6 +59,10 @@ const SaleItem = ({
         className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  border-2 border-white px-4 py-2 rounded-full transition duration-200 ease-in-out ${
           isHovered === index ? "bg-white text-primary" : "text-white"
         }`}
+        onClick={(e) => {
+          e.stopPropagation()
+          console.log(`added ${name} to cart!`)
+        }}
       >
         Add to cart
       </button>
