@@ -17,7 +17,7 @@ const Sidebar = ({ nav, setNav }: SidebarProps) => {
       }
     >
       {/* Mobile Logo */}
-      <h1 className="w-full text-3xl font-bold text-white m-4">REACT.</h1>
+      <h1 className="w-full text-3xl font-bold text-white m-4">Ecommerce</h1>
 
       {/* Mobile Navigation Items */}
       {navList.map((item) => (

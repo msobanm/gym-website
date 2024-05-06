@@ -25,7 +25,7 @@ const Products = () => {
               : `Products in ${selectedCategory}`}
           </h2>
           {isPending ? (
-            <div className="h-full w-full flex justify-center items-center">
+            <div className="min-h-svh w-full flex justify-center items-center">
               <Spinner />
             </div>
           ) : (
