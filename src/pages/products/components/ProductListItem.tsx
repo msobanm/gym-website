@@ -16,7 +16,7 @@ const ProductListItem = ({
 
   return (
     <li
-      className="mb-2 p-4 min-w-40 min-h-60 flex flex-col gap-2 items-center cursor-pointer "
+      className="mb-2 p-12 md:p-4 min-w-40 min-h-60 flex flex-col gap-2 items-center cursor-pointer "
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={() =>
@@ -25,7 +25,7 @@ const ProductListItem = ({
         })
       }
     >
-      <div className="w-40 h-60 relative">
+      <div className="w-4/5 md:w-40 md:h-60 relative p-4">
         <img src={image} className="w-full h-full object-contain " />
         <button
           className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 bg-primary text-white px-4 p-2 w-3/4 h-10 transition-all duration-200 ease-in-out ${
