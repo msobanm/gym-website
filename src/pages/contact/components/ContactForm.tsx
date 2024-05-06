@@ -12,8 +12,11 @@ const ContactForm = ({ onSubmit, emailSent, children }: ContactFormProps) => {
           below, and we'll get back to you as soon as possible.
         </p>
       </div>
-      <form onSubmit={onSubmit} className="flex gap-4 w-full">
-        <div className="flex flex-col gap-1 w-3/4">{children}</div>
+      <form
+        onSubmit={onSubmit}
+        className="flex flex-col md:flex-row gap-4 w-full"
+      >
+        <div className="flex flex-col gap-1 md:w-3/4">{children}</div>
         <div className="pt-5 flex flex-col gap-3 items-start">
           <Button title="Send Email" type="submit" />
           {emailSent && (

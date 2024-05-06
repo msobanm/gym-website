@@ -8,7 +8,7 @@ const Button = ({ className, title, type, onClick, primary }: ButtonProps) => {
         primary
           ? "bg-primary-2 hover:bg-primary"
           : " bg-secondary hover:bg-secondary-2"
-      } text-white px-6 py-3 rounded focus:outline-none transition duration-200 ease-in-out shadow-md ${className}`}
+      } text-white h-12 w-32 flex justify-center items-center rounded focus:outline-none transition duration-200 ease-in-out shadow-md ${className}`}
       onClick={onClick}
       type={type}
     >

@@ -27,33 +27,31 @@ const Breadcrumbs = () => {
   }
 
   return (
-    <>
-      <div className="px-2">
-        <div className="flex gap-2 border-b-2 px-2">
-          <StyledLink route="/" name="Home" />
-          <div>{">"}</div>
-          {pathnames.map((name, index) => {
-            const routeTo = `/${pathnames.slice(0, index + 1).join("/")}`
-            const isLast = index === pathnames.length - 1
-            return (
-              <span key={name}>
-                <span className="text-secondary">
-                  {isLast ? (
-                    <span>{capitalizeAndReplace(name)}</span>
-                  ) : (
-                    <StyledLink
-                      route={routeTo}
-                      name={capitalizeAndReplace(name)}
-                    />
-                  )}
-                </span>
-                <span>{!isLast && " > "}</span>
+    <div className="px-2 hidden md:block">
+      <div className="flex gap-2 border-b-2 px-2">
+        <StyledLink route="/" name="Home" />
+        <div>{">"}</div>
+        {pathnames.map((name, index) => {
+          const routeTo = `/${pathnames.slice(0, index + 1).join("/")}`
+          const isLast = index === pathnames.length - 1
+          return (
+            <span key={name}>
+              <span className="text-secondary">
+                {isLast ? (
+                  <span>{capitalizeAndReplace(name)}</span>
+                ) : (
+                  <StyledLink
+                    route={routeTo}
+                    name={capitalizeAndReplace(name)}
+                  />
+                )}
               </span>
-            )
-          })}
-        </div>
+              <span>{!isLast && " > "}</span>
+            </span>
+          )
+        })}
       </div>
-    </>
+    </div>
   )
 }
 
