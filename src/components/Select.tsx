@@ -7,7 +7,7 @@ type SelectProps = {
 const Select = ({ quantity, setQuantity }: SelectProps) => {
   return (
     <select
-      className="border border-gray-300 p-2 rounded-md"
+      className="border border-gray-300 p-2 rounded-md max-w-12"
       value={quantity}
       onChange={(e) => setQuantity(parseInt(e.target.value, 10))}
     >

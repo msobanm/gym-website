@@ -34,11 +34,11 @@ const Cart = () => {
   return (
     <div className="min-h-svh">
       <Breadcrumbs />
-      <div className="p-10">
+      <div className="p-2 lg:p-5 xl:p-10">
         <h1 className="text-5xl">Cart</h1>
-        <div className="min-w-full flex flex-col gap-10 py-10 px-5 lg:flex-row">
+        <div className="min-w-full flex flex-col gap-5 lg:gap-5 xl:gap-10 py-10 md:px-2 lg:px-2 xl:px-5 lg:flex-row">
           <div className="flex flex-col p-2 shadow-all rounded-lg lg:w-3/4">
-            <div className="flex p-5 justify-between">
+            <div className="flex p-5 justify-between max-[500px]:hidden">
               <div className="w-3/5">
                 <h4 className="text-lg font-medium">Product</h4>
               </div>
@@ -62,7 +62,7 @@ const Cart = () => {
               ))}
             </div>
           </div>
-          <div className="lg:w-1/4 w-1/2 h-fit shadow-lg bg-secondary-2 rounded-lg p-5 pb-10 flex flex-col gap-5">
+          <div className="lg:w-1/4 md:w-1/2 h-fit shadow-lg bg-secondary-2 rounded-lg p-5 pb-10 flex flex-col gap-5">
             <h2 className="text-3xl font-semibold">Cart Total</h2>
             <h4 className="text-lg flex justify-between">
               Subtotal

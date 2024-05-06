@@ -21,11 +21,11 @@ const CartItem = ({
 }: CartItemProps) => {
   const [itemQuantity, setItemQuantity] = useState(quantity)
   return (
-    <div className="flex p-5 justify-between">
-      <div className="w-3/5 flex gap-10">
+    <div className="flex flex-col gap-5 md:gap-0 md:flex-row p-5 justify-between">
+      <div className="w-3/5 flex flex-col md:flex-row gap-10">
         <img
           src="https://nishatlinen.com/cdn/shop/files/42401115-_2.jpg?v=1706339234&width=600"
-          className="h-40 object-cover rounded-md"
+          className="md:h-40 object-cover rounded-md"
         />
         <div className="mt-5 flex flex-col gap-3">
           <p className="text-gray-500">{category}</p>
@@ -38,7 +38,7 @@ const CartItem = ({
           </p>
         </div>
       </div>
-      <div className="flex w-2/5 justify-between items-center">
+      <div className="flex flex-col md:flex-row gap-5 md:gap-0 md:w-2/5 justify-between md:items-center">
         <h2 className="text-lg font-bold">Rs. {price.toLocaleString()}</h2>
         <Select quantity={itemQuantity} setQuantity={setItemQuantity} />
         <h2 className="text-lg text-secondary font-bold">
