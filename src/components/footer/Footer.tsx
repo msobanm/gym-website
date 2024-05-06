@@ -11,7 +11,7 @@ const Footer = () => {
           <img src="/logo_white.png" className="h-full w-full object-contain" />
         </div>
 
-        <EmailSection />
+        {/* <EmailSection /> */}
 
         <FollowSection />
       </div>
