@@ -7,7 +7,7 @@ const CategoryCol = ({
   setSelectedCategory,
 }: CategoryColProps) => {
   return (
-    <div className="md:w-1/4 md:h-screen p-4 border-r">
+    <div className="md:w-1/4 md:h-screen p-2 md:p-4 border-r">
       <h2 className="text-2xl font-bold mb-4">Categories</h2>
       <ul className="flex gap-4 md:flex-col md:gap-0">
         {categories.map((category) => (
