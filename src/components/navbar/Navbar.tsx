@@ -11,7 +11,7 @@ const Navbar = () => {
   return (
     <nav className="bg-white h-[56px] pt-2 fixed z-50 w-full">
       <div className="px-2 lg:px-8 grid grid-cols-3 items-center content-center">
-        <ul className="max-[700px]:hidden flex gap-0 xl:gap-8 h-full items-center">
+        <ul className="max-[700px]:hidden flex gap-0 xl:gap-8 h-full items-center mb-0">
           {navList.map((item) => (
             <Link
               to={item.title === "Home" ? `/` : `${item.title.toLowerCase()}`}

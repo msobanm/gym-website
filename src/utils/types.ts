@@ -14,12 +14,6 @@ export type ButtonProps = {
   primary?: boolean
 }
 
-export type CarouselItemProps = {
-  name: string
-  image: string
-  onClick: () => void
-}
-
 export type CategoryColProps = {
   selectedCategory: string
   setSelectedCategory: React.Dispatch<React.SetStateAction<string>>
