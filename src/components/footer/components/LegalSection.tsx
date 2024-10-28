@@ -10,7 +10,7 @@ const LegalSection = () => {
       {legal.map((text, index) => (
         <p
           key={index}
-          className="text-white text-sm text-center hover:text-secondary cursor-pointer"
+          className="text-white text-sm text-center hover:text-primary cursor-pointer"
         >
           {text.text}
         </p>

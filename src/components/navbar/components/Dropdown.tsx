@@ -18,7 +18,7 @@ const Dropdown = ({ isOpen, auth }: Dropdown) => {
   }
   return (
     <ul
-      className={`bg-white p-[5px] flex flex-col shadow-inner absolute top-[2.8em] left-2 rounded ${
+      className={`bg-white list-none p-[5px] flex flex-col shadow-inner absolute top-[2.8em] left-2 rounded ${
         isOpen ? "" : "hidden"
       }`}
     >

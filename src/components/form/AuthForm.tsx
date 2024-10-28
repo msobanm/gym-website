@@ -5,12 +5,12 @@ import { Link } from "react-router-dom"
 
 const AuthForm = ({ title, onSubmit, children }: AuthFormProps) => {
   return (
-    <div className="w-full h-svh flex justify-center items-center bg-primary">
+    <div className="w-full h-svh flex justify-center items-center bg-secondary">
       <div className="w-[23em] min-h-3/4 p-6 flex flex-col gap-5 bg-white rounded-md shadow-md">
         <h1 className="text-4xl font-bold">{title}</h1>
         <form onSubmit={onSubmit} className="flex flex-col gap-5">
           {children}
-          <Button title={title} type="submit" />
+          <Button primary title={title} type="submit" />
         </form>
         <p className="text-gray-700 text-sm">
           {title === "Register"
@@ -18,7 +18,7 @@ const AuthForm = ({ title, onSubmit, children }: AuthFormProps) => {
             : "Don't have an account? "}
           <Link
             to={title === "Register" ? "/login" : "/register"}
-            className="text-secondary cursor-pointer"
+            className="text-primary cursor-pointer"
           >
             {" "}
             {title === "Register" ? "Login Here!" : "Register Here!"}

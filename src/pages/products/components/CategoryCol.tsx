@@ -9,7 +9,7 @@ const CategoryCol = ({
   return (
     <div className="md:w-1/4 md:h-screen p-2 md:p-4 border-r">
       <h2 className="text-2xl font-bold mb-4">Categories</h2>
-      <ul className="flex gap-4 md:flex-col md:gap-0">
+      <ul className="flex gap-4 md:flex-col md:gap-0 list-none">
         {categories.map((category) => (
           <li
             key={category}

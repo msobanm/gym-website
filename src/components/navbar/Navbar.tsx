@@ -18,7 +18,7 @@ const Navbar = () => {
               key={item.title}
               className="h-full"
             >
-              <li className="flex items-center px-4 text-primary cursor-pointer border-b-4 border-transparent hover:border-secondary h-full transition duration-100 ease-in-out">
+              <li className="flex items-center px-4 text-secondary cursor-pointer border-b-4 border-transparent hover:border-primary-2 h-full transition duration-100 ease-in-out">
                 {item.title}
               </li>
             </Link>

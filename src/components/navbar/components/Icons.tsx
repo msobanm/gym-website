@@ -45,10 +45,10 @@ export default function Icons() {
         <div
           key={icon.name}
           onClick={() => handleOnClick(icon.name)}
-          className={`w-30 h-10 select-none flex justify-center items-center hover:bg-secondary hover:text-white cursor-pointer p-2 rounded-full transition duration-200 ease-in-out ${
+          className={`w-30 h-10 select-none flex justify-center items-center hover:bg-primary hover:text-white cursor-pointer p-2 rounded-full transition duration-200 ease-in-out ${
             icon.name === "user"
               ? isOpen
-                ? "bg-secondary text-white"
+                ? "bg-primary text-white"
                 : "bg-white"
               : ""
           }`}
