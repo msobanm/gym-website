@@ -105,7 +105,7 @@ export const hot = [
 
 export const categories = [
   "All",
-  "Electronics",
+  "Creatine",
   "Jewelery",
   "Men's Clothing",
   "Women's Clothing",

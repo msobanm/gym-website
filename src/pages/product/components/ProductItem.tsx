@@ -11,35 +11,31 @@ import YouMayLikeSection from "../../../components/YouMayLikeSection"
 const ProductItem = ({ quantity, setQuantity, onClick }: ProductItemProps) => {
   const { state } = useLocation()
 
-  const {
-    title,
-    image,
-    description,
-    initial_price,
-    final_price,
-    category,
-    rating,
-  } = state
+  const { _id, title, desc, img, type, categories, variants, reviews } = state
   return (
     <div>
       <div className="flex flex-col md:p-8 lg:p-16 pb-24 min-h-[50em] md:min-h-[50em] md:flex-row">
         <div className="md:w-1/2 flex justify-center items-center p-5">
-          <img src={image} alt={title} className="h-full object-contain" />
+          <img src={img[0]} alt={title} className="h-full object-contain" />
         </div>
         <div className="md:w-1/2 bg-white p-6 rounded-md shadow-md m-5 md:m-0">
           <h2 className="text-3xl font-bold mb-2">{title}</h2>
           <p className="text-gray-700 mb-5 flex gap-2">
             Category:{" "}
-            <span className="text-secondary">{category.toUpperCase()}</span>
+            <span className="text-secondary">
+              {categories[0].toUpperCase()}
+            </span>
           </p>
           <p className="text-gray-700 text-xl font-semibold mb-5 flex gap-2">
             <span className="text-red-500 line-through">
-              Rs. {initial_price}
+              Rs. {variants[0].initial_price}
             </span>
-            <span className="text-secondary">Rs. {final_price}</span>
+            <span className="text-secondary">
+              Rs. {variants[0].final_price}
+            </span>
           </p>
-          <div className="flex items-center">{renderStars(rating.rate)}</div>
-          <p className="text-gray-500">{`${rating.rate} (${rating.count} reviews)`}</p>
+          {/* <div className="flex items-center">{renderStars(rating.rate)}</div>
+          <p className="text-gray-500">{`${rating.rate} (${rating.count} reviews)`}</p> */}
           <div className="flex gap-4 items-center mt-6">
             <label className="text-gray-700">Quantity:</label>
             <Select quantity={quantity} setQuantity={setQuantity} />
@@ -89,7 +85,7 @@ const ProductItem = ({ quantity, setQuantity, onClick }: ProductItemProps) => {
         <h1 className="text-2xl font-serif border-b border-black">
           Description
         </h1>
-        <div>{ReactHtmlParser(description)}</div>
+        <div>{ReactHtmlParser(desc)}</div>
       </div>
       <YouMayLikeSection />
     </div>

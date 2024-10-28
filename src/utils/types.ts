@@ -34,41 +34,31 @@ export type FormInputProps = {
   message: string | undefined
 }
 
+type Variant = {
+  flavor: string
+  size: string
+  initial_price: number
+  final_price: number
+  sku: string
+  stock: number
+  _id: string
+}
+
 export type Product = {
-  id: number
+  _id: string
   title: string
-  image: string
-  description: string
-  price: number
-  category: string
-  rating: {
-    rate: number
-    count: number
-  }
+  desc: string
+  img: string[]
+  type: string
+  categories: string[]
+  variants: Variant[]
+  reviews: any[]
 }
 
 export type ProductItemProps = {
   quantity: number
   setQuantity: React.Dispatch<React.SetStateAction<number>>
   onClick: () => void
-}
-
-export type ProductProps = {
-  id: number
-  title: string
-  image: string
-  description: string
-  price: number
-  category: string
-  rating: {
-    rate: number
-    count: number
-  }
-}
-
-export type ProductListProps = {
-  category: string
-  products: Product[]
 }
 
 export type ReviewCardProps = {
