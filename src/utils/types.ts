@@ -14,11 +14,6 @@ export type ButtonProps = {
   primary?: boolean
 }
 
-export type CategoryColProps = {
-  selectedCategory: string
-  setSelectedCategory: React.Dispatch<React.SetStateAction<string>>
-}
-
 export type ContactFormProps = {
   onSubmit: () => void
   emailSent: boolean

@@ -103,13 +103,7 @@ export const hot = [
   },
 ]
 
-export const categories = [
-  "All",
-  "Creatine",
-  "Jewelery",
-  "Men's Clothing",
-  "Women's Clothing",
-]
+export const categories = ["All", "Creatine", "Protein"]
 
 export const products = [
   {

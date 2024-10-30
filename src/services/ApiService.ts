@@ -26,50 +26,81 @@ class ApiService {
     return { "x-auth-token": accessToken }
   }
 
-  static get(path: string, options: Options) {
+  static get(path: string, options: Options, params?: Record<string, any>) {
     const { signal, useAuthorization, headers } = options
+
+    // Add query parameters if provided
+    const url = params
+      ? `${path}?${new URLSearchParams(params).toString()}`
+      : path
+
     if (useAuthorization) {
       const authHeaders = this.authHeader()
       if (authHeaders["x-auth-token"] != null) {
         headers["x-auth-token"] = authHeaders["x-auth-token"]
       }
     }
+
     return client({
       method: "GET",
-      url: path,
+      url,
       headers,
       signal: AbortSignal.timeout(signal),
     })
   }
 
-  static post(path: string, data: any, options: Options) {
+  static post(
+    path: string,
+    data: any,
+    options: Options,
+    params?: Record<string, any>
+  ) {
     const { useAuthorization, headers, signal } = options
+
+    // Add query parameters if provided
+    const url = params
+      ? `${path}?${new URLSearchParams(params).toString()}`
+      : path
+
     if (useAuthorization) {
       const authHeaders = this.authHeader()
       if (authHeaders["x-auth-token"] != null) {
         headers["x-auth-token"] = authHeaders["x-auth-token"]
       }
     }
+
     return client({
       method: "POST",
-      url: path,
+      url,
       data,
       headers,
       signal: AbortSignal.timeout(signal),
     })
   }
 
-  static patch(path: string, data: any, options: Options) {
+  static patch(
+    path: string,
+    data: any,
+    options: Options,
+    params?: Record<string, any>
+  ) {
     const { useAuthorization, headers } = options
+
+    // Add query parameters if provided
+    const url = params
+      ? `${path}?${new URLSearchParams(params).toString()}`
+      : path
+
     if (useAuthorization) {
       const authHeaders = this.authHeader()
       if (authHeaders["x-auth-token"] != null) {
         headers["x-auth-token"] = authHeaders["x-auth-token"]
       }
     }
+
     return client({
       method: "PATCH",
-      url: path,
+      url,
       data,
       headers,
     })
