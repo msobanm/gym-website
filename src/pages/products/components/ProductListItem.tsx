@@ -41,7 +41,7 @@ const ProductListItem = ({
         final_price={variants[0].final_price}
       />
       <div className="w-4/5 md:w-40 md:h-60 relative">
-        <img src={img[0]} className="w-full h-full object-cover" />
+        <img src={img[0]} className="w-full h-full object-contain" />
         <button
           className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 bg-primary text-white px-4 p-2 w-3/4 h-10 transition-all duration-200 ease-in-out ${
             isHovered ? "opacity-100" : "opacity-0"

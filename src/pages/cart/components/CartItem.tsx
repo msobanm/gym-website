@@ -1,25 +1,24 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { totalPriceCalculator } from "../../../utils/helpers"
 import Select from "../../../components/Select"
+// import { Product } from "../../../utils/types"
 
-type CartItemProps = {
+type Product = {
   name: string
+  quantity: number
   category: string
   color: string
   size: number
   price: number
-  quantity: number
 }
 
-const CartItem = ({
-  name,
-  category,
-  color,
-  size,
-  price,
-  quantity,
-}: CartItemProps) => {
-  const [itemQuantity, setItemQuantity] = useState(quantity)
+type CartItemProps = {
+  product: Product
+}
+
+const CartItem = ({ product }: CartItemProps) => {
+  const [itemQuantity, setItemQuantity] = useState(product.quantity)
+
   return (
     <div className="flex flex-col gap-5 md:gap-0 md:flex-row p-5 justify-between">
       <div className="w-3/5 flex flex-col md:flex-row gap-10">
@@ -28,21 +27,26 @@ const CartItem = ({
           className="md:h-40 object-cover rounded-md"
         />
         <div className="mt-5 flex flex-col gap-3">
-          <p className="text-gray-500">{category}</p>
-          <p className="text-lg font-medium -mt-3">{name}</p>
+          <p className="text-gray-500">{product.category}</p>
+          <p className="text-lg font-medium -mt-3">{product.name}</p>
           <p className="text-gray-500">
-            Color: <span className="text-black">{color}</span>
+            Color:
+            {/* <span className="text-black">{color}</span> */}
           </p>
           <p className="text-gray-500">
-            Size: <span className="text-black">{size}</span>
+            Size: <span className="text-black">{product.size}</span>
           </p>
         </div>
       </div>
       <div className="flex flex-col md:flex-row gap-5 md:gap-0 md:w-2/5 justify-between md:items-center">
-        <h2 className="text-lg font-bold">Rs. {price.toLocaleString()}</h2>
-        <Select quantity={itemQuantity} setQuantity={setItemQuantity} />
-        <h2 className="text-lg text-secondary font-bold">
-          Rs. {totalPriceCalculator(price, itemQuantity)}
+        <h2 className="text-lg">Rs. {product.price.toLocaleString()}</h2>
+        {/* <Select
+          quantity={itemQuantity}
+          setQuantity={setItemQuantity}
+          onQuantityChange={handleQuantityChange}
+        /> */}
+        <h2 className="text-lg text-secondary">
+          Rs. {totalPriceCalculator(product.price, itemQuantity)}
         </h2>
       </div>
     </div>

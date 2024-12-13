@@ -1,6 +1,6 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { renderStars } from "../../../utils/renderStars"
-import { ProductItemProps } from "../../../utils/types"
+import { ProductItemProps, Variant } from "../../../utils/types"
 import { useLocation } from "react-router-dom"
 import Select from "../../../components/Select"
 import { FaShippingFast } from "react-icons/fa"
@@ -12,6 +12,39 @@ const ProductItem = ({ quantity, setQuantity, onClick }: ProductItemProps) => {
   const { state } = useLocation()
 
   const { _id, title, desc, img, type, categories, variants, reviews } = state
+
+  const [selectedFlavor, setSelectedFlavor] = useState("")
+  const [selectedSize, setSelectedSize] = useState("")
+  const [initialPrice, setInitialPrice] = useState(0)
+  const [finalPrice, setfinalPrice] = useState(0)
+
+  // Update available sizes and price based on selected flavor
+  useEffect(() => {
+    if (selectedFlavor) {
+      const availableVariant = variants.find(
+        (variant: Variant) => variant.flavor === selectedFlavor
+      )
+      setSelectedSize(availableVariant.size) // Default size selection
+      setInitialPrice(availableVariant.initial_price) // Price of selected flavor and size
+      setfinalPrice(availableVariant.final_price) // Price of selected flavor and size
+    }
+  }, [selectedFlavor])
+
+  const handleFlavorChange = (flavor: string) => {
+    setSelectedFlavor(flavor)
+  }
+
+  const handleSizeChange = (size: string) => {
+    const selectedVariant = variants.find(
+      (variant: Variant) =>
+        variant.flavor === selectedFlavor && variant.size === size
+    )
+    if (selectedVariant) {
+      setSelectedSize(size)
+      setInitialPrice(selectedVariant.initial_price)
+      setfinalPrice(selectedVariant.final_price)
+    }
+  }
   return (
     <div>
       <div className="flex flex-col md:p-8 lg:p-16 pb-24 min-h-[50em] md:min-h-[50em] md:flex-row">
@@ -26,13 +59,41 @@ const ProductItem = ({ quantity, setQuantity, onClick }: ProductItemProps) => {
               {categories[0].toUpperCase()}
             </span>
           </p>
+          <p className="text-gray-700 mb-5 flex gap-2">
+            Availability:{" "}
+            <span className="text-secondary">{variants.stock}</span>
+          </p>
+          <div>
+            <h3>Select Flavor:</h3>
+            {variants.map((variant: Variant) => (
+              <button
+                key={variant.flavor}
+                onClick={() => handleFlavorChange(variant.flavor)}
+                className={selectedFlavor === variant.flavor ? "active" : ""}
+              >
+                {variant.flavor}
+              </button>
+            ))}
+          </div>
+          <div>
+            <h3>Select Size:</h3>
+            {variants
+              .filter((variant: Variant) => variant.flavor === selectedFlavor)
+              .map((variant: Variant) => (
+                <button
+                  key={variant.size}
+                  onClick={() => handleSizeChange(variant.size)}
+                  className={selectedSize === variant.size ? "active" : ""}
+                >
+                  {variant.size}
+                </button>
+              ))}
+          </div>
           <p className="text-gray-700 text-xl font-semibold mb-5 flex gap-2">
             <span className="text-red-500 line-through">
-              Rs. {variants[0].initial_price}
+              Rs. {initialPrice}
             </span>
-            <span className="text-secondary">
-              Rs. {variants[0].final_price}
-            </span>
+            <span className="text-secondary">Rs. {finalPrice}</span>
           </p>
           {/* <div className="flex items-center">{renderStars(rating.rate)}</div>
           <p className="text-gray-500">{`${rating.rate} (${rating.count} reviews)`}</p> */}

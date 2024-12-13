@@ -29,7 +29,7 @@ export type FormInputProps = {
   message: string | undefined
 }
 
-type Variant = {
+export type Variant = {
   flavor: string
   size: string
   initial_price: number
